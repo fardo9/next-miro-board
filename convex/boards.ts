@@ -1,13 +1,9 @@
 import { v } from 'convex/values'
-
 import { QueryCtx, query } from './_generated/server'
 
 export const getBoards = query({
   args: { orgId: v.string() },
-  handler: async (
-    ctx: QueryCtx,
-    args: { orgId: string }
-  ) => {
+  handler: async (ctx: QueryCtx, args: { orgId: string }) => {
     const identity = await ctx.auth.getUserIdentity()
 
     if (!identity) throw new Error('Unauthorized')

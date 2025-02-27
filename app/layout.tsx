@@ -1,19 +1,7 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
-import ConvexClientProvider from '@/shared/providers/convex-client-provider'
-
-import './globals.css'
+import ConvexClientProvider from '@/app/_providers/convex-client-provider'
 import { Toaster } from '@/shared/components/ui'
-
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
+import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Create Next App',

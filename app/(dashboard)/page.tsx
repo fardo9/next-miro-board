@@ -1,9 +1,8 @@
 'use client'
 
-import BoardList from '@/shared/components/BoardList/BoardList'
-import { EmptyOrganization } from '@/shared/components/Empty'
+import BoardList from '@/widget/BoardList/ui/BoardList'
+import EmptyOrganization from '@/widget/EmptyState/ui/EmptyOrganization'
 import { useOrganization } from '@clerk/nextjs'
-import { useSearchParams } from 'next/navigation'
 
 export default function Dashboard({}) {
   const { organization } = useOrganization()
@@ -11,9 +10,7 @@ export default function Dashboard({}) {
   return (
     <div className="flex-1 h-[calc(100vh-80px)] p-6 bg-slate-400">
       {organization ? (
-        <BoardList
-          orgId={organization.id}
-        />
+        <BoardList orgId={organization.id} />
       ) : (
         <EmptyOrganization />
       )}

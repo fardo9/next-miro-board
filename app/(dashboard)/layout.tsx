@@ -1,12 +1,11 @@
-import type { Metadata } from 'next';
-import Sidebar from '../../shared/components/Sidebar/Sidebar';
-import OrganizeSidebar from '@/shared/components/Sidebar/OrganizeSidebar/OrganizeSidebar';
-import Navbar from '@/shared/components/Navbar/Navbar';
+import Sidebar from '../../widget/Sidebar/ui/Sidebar'
+import OrganizeSidebar from '@/features/OrganizeSidebar/ui/OrganizeSidebar'
+import { Navbar } from '@/shared/components/ui'
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <main className="h-full">
@@ -21,5 +20,5 @@ export default function RootLayout({
         </div>
       </div>
     </main>
-  );
+  )
 }
