@@ -12,7 +12,6 @@ export const useApiMutation = (mutationFn: any) => {
     return await apiMutation(payload)
       .finally(() => setPending(false))
       .then((response) => {
-        console.log('Mutation response:', response)
         return response.data
       })
       .catch((error) => {

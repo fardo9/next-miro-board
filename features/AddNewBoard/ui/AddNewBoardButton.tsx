@@ -16,7 +16,7 @@ const AddNewBoardButton = ({ orgId, disabled }: AddNewBoardButtonProps) => {
   const handleCreateBoard = async () => {
     if (!organization) return
 
-    await mutate({ orgId, title: 'New Board 1' })
+    await mutate({ orgId, title: 'New Board 2' })
       .then((id) => {
         toast.success('Board created successfully!')
         // TODO: Redirect to board page /boad/{id}

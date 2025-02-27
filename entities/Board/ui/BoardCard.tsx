@@ -12,6 +12,10 @@ import { MoreHorizontal } from 'lucide-react'
 import Overlay from '@/shared/components/ui/custom/Overlay'
 import FooterBoardCard from '@/features/FooterBoard/ui/FooterBoardCard'
 import BoardAction from './BoardAction'
+import { useApiMutation } from '@/shared/hooks/useApiMutation'
+import { api } from '@/convex/_generated/api'
+import { toast } from 'sonner'
+import { useMutation } from 'convex/react'
 
 const BoadrCard: FC<BoadrCardProps> = ({
   id,
@@ -29,6 +33,25 @@ const BoadrCard: FC<BoadrCardProps> = ({
   const createdAtLabel = formatDistanceToNow(createdAt, {
     addSuffix: true,
   })
+
+  const { mutate: onFavorite, pending: pendingFavorite } = useApiMutation(
+    api.board.favoriteBoard
+  )
+  const { mutate: onUnFavorite, pending: pendingUnFavorite } = useApiMutation(
+    api.board.unFavoriteBoard
+  )
+
+  const handleToggleFavorite = async () => {
+    if (isFavorite) {
+      await onUnFavorite({ id }).catch((error) =>
+        toast.error('Failed to unfavorite board')
+      )
+    } else {
+      await onFavorite({ id, orgId }).catch((error) =>
+        toast.error('Failed to favorite board')
+      )
+    }
+  }
 
   return (
     <Link href={`/board/${id}`}>
@@ -53,8 +76,8 @@ const BoadrCard: FC<BoadrCardProps> = ({
           title={title}
           createdAtLabel={createdAtLabel}
           authorLabel={authorLabel}
-          onClick={() => {}}
-          disabled={false}
+          onClick={handleToggleFavorite}
+          disabled={pendingFavorite || pendingUnFavorite}
         />
       </div>
     </Link>

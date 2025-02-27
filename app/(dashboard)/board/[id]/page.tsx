@@ -1,7 +1,7 @@
 import React from 'react'
 
-const BoardDetails = ({ params }: { params: any }) => {
-  return <div>BoardDetails {params.id}</div>
+const BoardDetails = () => {
+  return <div>BoardDetails </div>
 }
 
 export default BoardDetails

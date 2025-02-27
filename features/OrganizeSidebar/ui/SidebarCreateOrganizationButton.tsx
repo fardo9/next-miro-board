@@ -3,16 +3,12 @@ import { PlusIcon } from 'lucide-react'
 import { CreateOrganization } from '@clerk/nextjs'
 
 import Hint from '@/shared/components/ui/custom/Hint'
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-} from '@/shared/components/ui/shadcn/dialog'
+import { Dialog, DialogContent, DialogTrigger } from '@/shared/components/ui'
 
 const SidebarCreateOrganizationButton = () => {
   return (
     <Dialog>
-      <DialogTrigger asChild>
+      <DialogTrigger>
         <Hint
           label={'Create Organization'}
           side="right"
@@ -25,6 +21,7 @@ const SidebarCreateOrganizationButton = () => {
         </Hint>
       </DialogTrigger>
       <DialogContent className="p-0 bg-transparent border-none max-w-[480px]">
+        sss
         <CreateOrganization />
       </DialogContent>
     </Dialog>

@@ -12,7 +12,7 @@ export const useCreateBoard = () => {
 
     await mutate({
       orgId: organization.id,
-      title: 'New Board',
+      title: 'New Board22',
     })
       .then((id) => {
         toast.success('Board created successfully!')

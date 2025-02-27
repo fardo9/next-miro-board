@@ -3,11 +3,11 @@ import BoardCard from '../../../entities/Board/ui/BoardCard'
 import { BoardListContentProps } from '../model/boardList.types'
 import AddNewBoardButton from '@/features/AddNewBoard/ui/AddNewBoardButton'
 
-const BoardListContent: React.FC<BoardListContentProps> = ({
+const BoardListContent = ({
   data,
   orgId,
   hasFavorites,
-}) => {
+}: BoardListContentProps) => {
   return (
     <div className="flex flex-col w-full">
       <h2 className="text-3xl">
@@ -26,7 +26,7 @@ const BoardListContent: React.FC<BoardListContentProps> = ({
             authorName={board.authorName}
             createdAt={board._creationTime}
             orgId={board.orgId}
-            isFavorite={false}
+            isFavorite={board.isFavorite}
           />
         ))}
       </div>

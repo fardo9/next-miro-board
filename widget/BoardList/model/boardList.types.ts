@@ -11,6 +11,7 @@ export interface BoardListContentProps {
     authorName: string
     _creationTime: number
     orgId: string
+    isFavorite: boolean
   }>
   hasFavorites: boolean
   orgId: string
